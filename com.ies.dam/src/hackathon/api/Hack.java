@@ -1,7 +1,6 @@
 package hackathon.api;
 
 import hackathon.Parameters;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +17,12 @@ public class Hack <T>{
         return hack;
     }
 
+    /***
+     *
+     * @param exercicie: Nombre del ejercicio
+     * @param solution: Array de la solución
+     */
+
     public void resolve(String exercicie, T[] solution){
         Map<String, Object> dictionary = new HashMap<>();
         dictionary.put("exercice", exercicie);
@@ -25,6 +30,12 @@ public class Hack <T>{
         connector.post(String.class, dictionary, Parameters.PATH);
 
     }
+
+    /***
+     *
+     * @param exercice: Nombre del ejercicio
+     * @param solution: String separado por comas con la solución en forma clave valor. Ejemplo: "nombre:Pepe,edad:25"
+     */
 
     public void resolve(String exercice, String solution){
         Map<String, Object> dictionary = new HashMap<>();
